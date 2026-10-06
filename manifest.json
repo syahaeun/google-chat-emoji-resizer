@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Google Chat Custom Emoji Enlarger",
+  "version": "1.0.0",
+  "description": "Google Chat 메시지의 커스텀 이모티콘만 확대하고 반응 및 반응 선택창은 제외합니다.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://chat.google.com/*",
+    "https://mail.google.com/*"
+  ],
+  "action": {
+    "default_title": "Google Chat 이모티콘 크기 설정",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://chat.google.com/*",
+      "https://mail.google.com/*"
+    ],
+    "js": ["content.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }]
+}
